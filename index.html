@@ -6,7 +6,7 @@
     <title>属人化による年間損失額診断</title>
     <meta
       name="description"
-      content="3分で、新人教育・質問対応・引継ぎ・マニュアル未整備による年間損失額の目安を診断します。"
+      content="従業員数と現場の教育状況から、新人教育・質問対応・引継ぎ・マニュアル未整備による年間損失額の目安を診断します。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +36,7 @@
             <p class="eyebrow">3分でわかる</p>
             <h1>属人化による年間損失額診断</h1>
             <p class="lead">
-              簡単な質問に答えるだけで、新人教育・同じ質問への対応・引継ぎ・マニュアル未整備によって発生している可能性がある年間損失額を算出します。
+              従業員数と現場の教育状況をもとに、新人教育・同じ質問への対応・引継ぎ・マニュアル未整備によって発生している可能性がある年間損失額を算出します。
             </p>
             <div class="hero-actions">
               <button id="startDiagnosisButton" class="button primary" type="button">診断をはじめる</button>
@@ -107,8 +107,8 @@
           </div>
           <div class="progress-area">
             <div class="progress-label">
-              <span id="questionCount">Q1 / 7</span>
-              <span id="progressPercent">14%</span>
+              <span id="questionCount">Q1 / 8</span>
+              <span id="progressPercent">13%</span>
             </div>
             <div class="progress-track" aria-hidden="true">
               <div id="progressBar" class="progress-bar"></div>
@@ -142,6 +142,10 @@
           </div>
           <div class="result-details">
             <div>
+              <h3>年間損失額の内訳</h3>
+              <ul id="lossBreakdownList" class="breakdown-list"></ul>
+            </div>
+            <div>
               <h3>主な原因</h3>
               <ul id="issueList"></ul>
             </div>
@@ -161,10 +165,14 @@
         <section class="solution-section" id="solution">
           <div class="section-heading">
             <p class="eyebrow">Solution</p>
-            <h2>AI搭載のタスク・マニュアル作成ツールで、現場の業務を整理できます</h2>
+            <h2>TOACHで、マニュアル・タスク管理・教育を一元化できます</h2>
+            <p>
+              添付資料の内容をもとに、属人化による損失を減らすための導入イメージを整理しました。
+              現場の教える負担を減らし、誰でも同じ品質で学べる仕組みを作ります。
+            </p>
           </div>
           <div class="solution-intro">
-            <div class="solution-illustration" aria-label="AIでマニュアル化するイラスト">
+            <div class="solution-illustration" aria-label="TOACHで教育業務を仕組み化するイラスト">
               <svg viewBox="0 0 520 360" role="img" aria-labelledby="solutionIllustrationTitle">
                 <title id="solutionIllustrationTitle">入力した業務内容をAIが手順書へ変換するイラスト</title>
                 <rect x="44" y="56" width="178" height="224" rx="22" class="svg-card" />
@@ -181,32 +189,33 @@
               </svg>
             </div>
             <div>
-              <h3>話す、書く、箇条書きにするだけで資料化</h3>
+              <h3>対応漏れ・教育のばらつきをゼロへ</h3>
               <p>
-                普段の業務説明や作業手順を入力すると、AIが新人向けマニュアル、業務手順書、研修資料、引継ぎ資料、チェックリストへ変換します。
+                マニュアル作成/共有、タスク配信/進捗管理、教育/定着確認を一気通貫で管理。
+                現場の負担を減らし、人が育つ組織づくりを支援します。
               </p>
             </div>
           </div>
-          <div class="solution-grid">
+          <div class="solution-grid feature-grid">
             <article>
               <span>01</span>
-              <h3>新人向けマニュアル</h3>
-              <p>経験者の説明を、初めて担当する人にも分かる粒度へ整えます。</p>
+              <h3>マニュアル作成・共有</h3>
+              <p>ガイドに沿って入力するだけで、作業手順や教育資料を作成。写真や動画も使えて、視覚的に分かりやすい成果物を作れます。</p>
             </article>
             <article>
               <span>02</span>
-              <h3>業務手順書</h3>
-              <p>作業の順番、注意点、確認項目を一つの流れにまとめます。</p>
+              <h3>12言語の自動翻訳</h3>
+              <p>日本語のコンテンツを選ぶだけで、英語・中国語など主要12言語へ自動翻訳。外国人スタッフ教育もスムーズにできます。</p>
             </article>
             <article>
               <span>03</span>
-              <h3>研修・引継ぎ資料</h3>
-              <p>同じ説明を繰り返す時間を減らし、教育品質を安定させます。</p>
+              <h3>タスク配信・進捗管理</h3>
+              <p>誰が、いつまでに、何をするかを明確化。チェックリストや完了時の写真提出で、抜け漏れを未然に防ぎます。</p>
             </article>
             <article>
               <span>04</span>
-              <h3>チェックリスト</h3>
-              <p>抜け漏れを防ぎ、ベテラン社員への確認依存を減らします。</p>
+              <h3>教育・定着確認</h3>
+              <p>Eラーニングや確認テストで理解度を可視化。定着が弱い箇所を把握し、教育のばらつきを減らせます。</p>
             </article>
           </div>
         </section>
@@ -214,15 +223,15 @@
         <section class="cta-section" id="contact">
           <div>
             <p class="eyebrow">Contact</p>
-            <h2>属人化による損失を減らしませんか？</h2>
+            <h2>診断結果をもとに、TOACH導入後の削減効果を確認しませんか？</h2>
             <p>
-              まずは無料で、貴社の業務を診断します。実際の業務内容をヒアリングし、その場で新人向けマニュアルのサンプルを作成します。
+              実際の業務内容をヒアリングし、マニュアル化・タスク管理・教育定着まで、どの部分から仕組み化できるかをご提案します。
             </p>
             <ul class="cta-list">
               <li>所要時間：約30分</li>
               <li>オンライン対応可能</li>
-              <li>実際の業務を1つマニュアル化</li>
-              <li>導入前の相談だけでも可能</li>
+              <li>実際の業務を1つマニュアル化して確認</li>
+              <li>多言語対応や外国人スタッフ教育の相談も可能</li>
             </ul>
           </div>
           <form class="lead-form" id="leadForm">
@@ -236,7 +245,7 @@
             </label>
             <label>
               相談したい内容
-              <textarea name="message" placeholder="例：新人教育用の手順書をAIで作りたい"></textarea>
+              <textarea name="message" placeholder="例：新人教育とタスク管理をTOACHで仕組み化したい"></textarea>
             </label>
             <button class="button primary full" type="submit">無料業務診断を申し込む</button>
             <p id="formMessage" class="form-message" role="status"></p>
