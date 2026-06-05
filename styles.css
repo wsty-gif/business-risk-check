@@ -578,6 +578,16 @@ h3 {
   background: #fff;
 }
 
+.solution-replacement-image {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.solution-replacement-image + svg {
+  display: none;
+}
+
 .solution-intro p,
 .solution-grid p,
 .cta-section p,
