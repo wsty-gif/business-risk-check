@@ -28,6 +28,11 @@ body {
   background: var(--soft);
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -77,6 +82,11 @@ a {
   font-weight: 700;
 }
 
+.gated-link[aria-disabled="true"] {
+  color: #9aa7b5;
+  cursor: pointer;
+}
+
 .hero {
   color: #fff;
   background:
@@ -89,7 +99,7 @@ a {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(300px, 420px);
   gap: clamp(28px, 5vw, 72px);
-  min-height: calc(100svh - 68px);
+  min-height: min(760px, calc(100svh - 68px));
   max-width: 1180px;
   margin: 0 auto;
   padding: clamp(64px, 9vw, 112px) 22px 56px;
@@ -203,6 +213,15 @@ h3 {
   backdrop-filter: blur(18px);
 }
 
+.panel-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  margin-bottom: 22px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .risk-meter {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -290,6 +309,54 @@ h3 {
 
 .section-heading {
   margin-bottom: 32px;
+}
+
+.split-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+  gap: 24px;
+  align-items: end;
+}
+
+.mini-illustration {
+  display: grid;
+  grid-template-columns: 1fr 32px 1fr 32px 1fr;
+  align-items: center;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.flow-step {
+  display: grid;
+  min-height: 58px;
+  place-items: center;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--navy);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.flow-arrow {
+  height: 2px;
+  background: var(--teal);
+  position: relative;
+}
+
+.flow-arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid var(--teal);
+  border-right: 2px solid var(--teal);
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .quiz-shell,
@@ -409,6 +476,10 @@ h3 {
   color: var(--muted);
 }
 
+.result-cta {
+  margin-top: 18px;
+}
+
 .score-box {
   display: flex;
   align-items: end;
@@ -448,6 +519,26 @@ h3 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+}
+
+.solution-intro {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1fr);
+  gap: clamp(22px, 4vw, 42px);
+  max-width: 1120px;
+  margin: 0 auto 24px;
+  align-items: center;
+}
+
+.solution-intro img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.solution-intro p {
+  color: var(--muted);
 }
 
 .solution-grid article {
@@ -532,6 +623,10 @@ textarea {
   background: #fff;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 @media (max-width: 860px) {
   .header-nav {
     display: none;
@@ -539,17 +634,24 @@ textarea {
 
   .hero-inner,
   .result-layout,
-  .cta-section {
+  .cta-section,
+  .split-heading,
+  .solution-intro {
     grid-template-columns: 1fr;
   }
 
   .hero-inner {
     min-height: auto;
+    padding-top: 48px;
   }
 
   .trust-band,
   .solution-grid {
     grid-template-columns: 1fr;
+  }
+
+  .mini-illustration {
+    max-width: 420px;
   }
 
   .quiz-controls {
@@ -570,6 +672,61 @@ textarea {
     font-size: 14px;
   }
 
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .diagnosis-section,
+  .solution-section,
+  .cta-section,
+  .result-section {
+    padding: 48px 16px;
+  }
+
+  .risk-panel,
+  .quiz-shell,
+  .question-card,
+  .result-summary,
+  .result-details,
+  .lead-form,
+  .solution-grid article {
+    padding: 18px;
+  }
+
+  .trust-band div {
+    padding: 20px 16px;
+  }
+
+  .mini-illustration {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .flow-arrow {
+    width: 2px;
+    height: 24px;
+    justify-self: center;
+  }
+
+  .flow-arrow::after {
+    right: 50%;
+    top: auto;
+    bottom: -1px;
+    transform: translateX(50%) rotate(135deg);
+  }
+
   .hero-actions,
   .quiz-controls {
     flex-direction: column;
@@ -583,5 +740,20 @@ textarea {
   .answer-option {
     grid-template-columns: 30px 1fr;
     padding: 12px;
+  }
+
+  .answer-option span {
+    width: 30px;
+    height: 30px;
+  }
+
+  .answer-option strong {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .score-box {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

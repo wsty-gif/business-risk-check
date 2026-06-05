@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>業務ブラックボックス化危険度診断</title>
+    <title>業務ブラックボックス化 危険度診断</title>
     <meta
       name="description"
-      content="3分で属人化・教育コスト・引き継ぎ失敗リスクを可視化する診断型SaaSリード獲得LPです。"
+      content="3分で属人化・教育コスト・引き継ぎ失敗リスクを見える化する業務ブラックボックス化危険度診断です。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,8 +24,8 @@
       </a>
       <nav class="header-nav" aria-label="ページ内メニュー">
         <a href="#diagnosis">診断</a>
-        <a href="#solution">解決策</a>
-        <a href="#demo">無料デモ</a>
+        <a class="gated-link" href="#solution" aria-disabled="true">解決するには</a>
+        <a class="gated-link" href="#demo" aria-disabled="true">問い合わせ</a>
       </nav>
     </header>
 
@@ -36,15 +36,19 @@
             <p class="eyebrow">3分で見える化</p>
             <h1>あなたの職場の「業務ブラックボックス化」危険度診断</h1>
             <p class="lead">
-              「この人がいないと分からない」「教える人によってやり方が違う」「新人がなかなか育たない」。
+              「あの人がいないと分からない」「教える人によってやり方が違う」「新人がなかなか育たない」。
               その状態は、すでに損失や退職リスクにつながっているかもしれません。
             </p>
             <div class="hero-actions">
               <a class="button primary" href="#diagnosis">診断をはじめる</a>
-              <a class="button secondary" href="#demo">無料デモを見る</a>
             </div>
           </div>
           <aside class="risk-panel" aria-label="診断でわかること">
+            <img
+              class="panel-image"
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80"
+              alt="ホワイトボードの前で業務を整理するチーム"
+            />
             <div class="risk-meter">
               <span></span>
               <span></span>
@@ -63,7 +67,7 @@
         </div>
       </section>
 
-      <section class="trust-band" aria-label="課題の兆候">
+      <section class="trust-band" aria-label="よくある課題">
         <div>
           <strong>急な欠勤で止まる</strong>
           <span>担当者依存が表面化</span>
@@ -79,9 +83,18 @@
       </section>
 
       <section class="diagnosis-section" id="diagnosis">
-        <div class="section-heading">
-          <p class="eyebrow">Diagnostic Quiz</p>
-          <h2>8つの質問に答えるだけで、職場の危険度を判定します</h2>
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Diagnostic Quiz</p>
+            <h2>8つの質問に答えるだけで、現場の危険度を判定します</h2>
+          </div>
+          <figure class="mini-illustration" aria-label="診断の流れ">
+            <div class="flow-step">質問</div>
+            <div class="flow-arrow"></div>
+            <div class="flow-step">判定</div>
+            <div class="flow-arrow"></div>
+            <div class="flow-step">相談</div>
+          </figure>
         </div>
 
         <div class="quiz-shell">
@@ -118,6 +131,7 @@
               <span>危険度スコア</span>
               <strong id="riskScore"></strong>
             </div>
+            <a class="button primary full result-cta" href="#solution">解決するには</a>
           </div>
           <div class="result-details">
             <div>
@@ -136,61 +150,76 @@
         </div>
       </section>
 
-      <section class="solution-section" id="solution">
-        <div class="section-heading">
-          <p class="eyebrow">Solution</p>
-          <h2>属人化を防ぐには、忙しい現場にマニュアル作成を任せきらない仕組みが必要です</h2>
-        </div>
-        <div class="solution-grid">
-          <article>
-            <span>01</span>
-            <h3>口頭説明をマニュアル化</h3>
-            <p>現場で話している業務説明を、手順として読みやすい形に整理します。</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>音声・チャットから作成</h3>
-            <p>メモを書く時間がない現場でも、入力しやすい形から資料化できます。</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>新人向けに変換</h3>
-            <p>経験者の説明を、初めて担当する人にも分かる粒度へ整えます。</p>
-          </article>
-          <article>
-            <span>04</span>
-            <h3>引き継ぎ資料を再利用</h3>
-            <p>一度作った手順を研修資料・FAQ・引き継ぎ資料として活用できます。</p>
-          </article>
-        </div>
-      </section>
+      <div id="postDiagnosis" class="post-diagnosis" hidden>
+        <section class="solution-section" id="solution">
+          <div class="section-heading">
+            <p class="eyebrow">Solution</p>
+            <h2>属人化を防ぐには、忙しい現場にマニュアル作成を任せきらない仕組みが必要です</h2>
+          </div>
+          <div class="solution-intro">
+            <img
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1100&q=80"
+              alt="業務フローを資料に整理しているデスク"
+            />
+            <div>
+              <h3>現場の説明を、使える手順書に変える</h3>
+              <p>
+                口頭説明、メモ、チャットの断片を整理し、誰が見ても同じ作業ができる状態へ近づけます。
+                診断結果をもとに、まず着手すべき業務から相談できます。
+              </p>
+            </div>
+          </div>
+          <div class="solution-grid">
+            <article>
+              <span>01</span>
+              <h3>口頭説明をマニュアル化</h3>
+              <p>現場で話している業務説明を、手順として読みやすい形に整理します。</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>音声・チャットから作成</h3>
+              <p>メモを書く時間がない現場でも、入力しやすい素材から資料化できます。</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>新人向けに変換</h3>
+              <p>経験者の説明を、初めて担当する人にも分かる粒度へ整えます。</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>引き継ぎ資料を再利用</h3>
+              <p>一度作った手順を研修資料、FAQ、引き継ぎ資料として活用できます。</p>
+            </article>
+          </div>
+        </section>
 
-      <section class="cta-section" id="demo">
-        <div>
-          <p class="eyebrow">Free Demo</p>
-          <h2>無料相談・デモはこちら</h2>
-          <p>
-            あなたの実際の業務内容をもとに、その場でAIマニュアル化を体験できます。
-            まずは「今まで口頭で教えていた業務」がどれだけ簡単に整理できるかをご確認ください。
-          </p>
-        </div>
-        <form class="lead-form" id="leadForm">
-          <label>
-            お名前
-            <input type="text" name="name" placeholder="山田 太郎" required />
-          </label>
-          <label>
-            メールアドレス
-            <input type="email" name="email" placeholder="sample@example.com" required />
-          </label>
-          <label>
-            相談したい内容
-            <textarea name="message" placeholder="例：新人教育用の手順書をAIで作りたい"></textarea>
-          </label>
-          <button class="button primary full" type="submit">無料デモを申し込む</button>
-          <p id="formMessage" class="form-message" role="status"></p>
-        </form>
-      </section>
+        <section class="cta-section" id="demo">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>診断結果をもとに、解決方法を相談する</h2>
+            <p>
+              結果で見えたリスクをもとに、どの業務からマニュアル化すべきか、どの程度の工数で始められるかを確認できます。
+              下のフォームからお問い合わせください。
+            </p>
+          </div>
+          <form class="lead-form" id="leadForm">
+            <label>
+              お名前
+              <input type="text" name="name" placeholder="山田 太郎" required />
+            </label>
+            <label>
+              メールアドレス
+              <input type="email" name="email" placeholder="sample@example.com" required />
+            </label>
+            <label>
+              相談したい内容
+              <textarea name="message" placeholder="例：新人教育用の手順書をAIで作りたい"></textarea>
+            </label>
+            <button class="button primary full" type="submit">フォームで問い合わせる</button>
+            <p id="formMessage" class="form-message" role="status"></p>
+          </form>
+        </section>
+      </div>
     </main>
 
     <footer class="site-footer">

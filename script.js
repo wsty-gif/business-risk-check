@@ -25,7 +25,7 @@ const questions = [
     answers: ["ほぼ同じ", "多少違う", "人によってかなり違う", "教える人の経験や感覚に任されている"],
   },
   {
-    text: "業務マニュアルや手順書は、現在の実務に合っていますか？",
+    text: "業務マニュアルや手順書は、現在の実態に合っていますか？",
     intent: "マニュアルが存在していても使える状態かを確認します。",
     answers: [
       "常に最新に近い",
@@ -36,7 +36,7 @@ const questions = [
   },
   {
     text: "同じ質問や確認が、現場で何度も発生していますか？",
-    intent: "教育負担や時間損失を可視化します。",
+    intent: "教育負担や時間損失を見える化します。",
     answers: ["ほとんどない", "たまにある", "かなり多い", "毎日のように発生している"],
   },
   {
@@ -56,7 +56,7 @@ const questions = [
   },
   {
     text: "業務改善や教育資料作成に、時間をかけられていますか？",
-    intent: "分かっているけど後回しになっている課題を確認します。",
+    intent: "分かっているけれど後回しになっている課題を確認します。",
     answers: [
       "定期的にできている",
       "必要な時だけできている",
@@ -68,29 +68,29 @@ const questions = [
 
 const resultContent = {
   A: {
-    title: "業務標準化レベル：良好",
+    title: "標準化レベル：良好",
     lead:
-      "現在、大きな属人化リスクは低い状態です。ただし、人員増加・多拠点化・業務拡大が進むと、今の仕組みだけでは教育や共有が追いつかなくなる可能性があります。",
+      "現在、大きな属人化リスクは低い状態です。ただし、人員増加や多拠点化が進むと、今の仕組みだけでは教育や更新が追いつかなくなる可能性があります。",
     issueTitle: "今の課題",
     issues: ["マニュアル更新の手間", "教育資料作成の負担", "ノウハウ共有の効率化"],
     futureTitle: "次に起きやすいこと",
-    future: ["業務拡大時に更新が追いつかない", "拠点やチームごとの差が少しずつ生まれる", "教育資料の作成が特定担当者に偏る"],
+    future: ["業務拡大時に更新が追いつかない", "拠点やチームごとの差が少しずつ生まれる", "資料作成が特定担当者に偏る"],
     recommendation:
-      "今のうちにAIでマニュアル作成・更新を自動化すると、標準化レベルを維持したまま、教育コストをさらに削減できます。",
+      "今のうちにAIでマニュアル作成・更新を自動化すると、標準化レベルを維持したまま教育コストをさらに削減できます。",
   },
   B: {
-    title: "業務属人化リスク：注意レベル",
+    title: "属人化リスク：注意レベル",
     lead: "一見問題なく回っているように見えても、現場ではすでに小さな属人化が始まっています。",
     issueTitle: "起きやすい問題",
-    issues: ["教える人によって内容が変わる", "新人の成長スピードに差が出る", "同じ質問が繰り返される", "引き継ぎ時に抜け漏れが起きる"],
+    issues: ["教える人によって内容が変わる", "新人の習得スピードに差が出る", "同じ質問が繰り返される", "引き継ぎ時に抜け漏れが起きる"],
     futureTitle: "このまま放置すると",
     future: ["人員増加で教育負担が増える", "退職や異動が重なるとミスが増える", "現場ごとのやり方が固定化される"],
     recommendation:
       "早い段階で業務手順をAIで整理し、誰でも同じ品質で教えられる状態を作ることが重要です。",
   },
   C: {
-    title: "業務属人化リスク：高レベル",
-    lead: "現在、業務がかなり人に依存している可能性があります。特定の社員の経験・記憶・口頭説明に頼っている状態です。",
+    title: "属人化リスク：高レベル",
+    lead: "現在、業務がかなり人に依存している可能性があります。特定社員の経験、記憶、口頭説明に頼っている状態です。",
     issueTitle: "すでに起きている可能性が高い問題",
     issues: [
       "新人教育に時間がかかりすぎている",
@@ -102,7 +102,7 @@ const resultContent = {
     futureTitle: "このまま放置すると",
     future: ["退職時にノウハウが失われる", "新人が定着しにくくなる", "顧客対応や品質トラブルにつながる", "業務改善に手が回らなくなる"],
     recommendation:
-      "今すぐ、現場の業務を見える化し、マニュアル化する必要があります。AI搭載ツールを使えば、普段の説明やチャット入力から新人向けマニュアルを作成できます。",
+      "今すぐ現場の業務を見える化し、マニュアル化する必要があります。AI搭載ツールを使えば、普段の説明やチャット入力から新人向けマニュアルを作成できます。",
   },
   D: {
     title: "業務ブラックボックス化：危険レベル",
@@ -115,7 +115,7 @@ const resultContent = {
       "新人が何度も同じ質問をする",
       "マニュアルが存在しない、または使えない",
       "引き継ぎが口頭や個人メモに依存している",
-      "現場のやり方が人によってバラバラ",
+      "現場のやり方が人によってばらばら",
     ],
     futureTitle: "このまま放置すると危険なこと",
     future: [
@@ -127,7 +127,7 @@ const resultContent = {
       "管理者が現場の実態を把握できなくなる",
     ],
     recommendation:
-      "まずは、頭の中にある業務手順を外に出し、誰でも見られる形にすることです。AI搭載マニュアル作成ツールなら、現場の説明・音声・チャットから、短時間で新人向けマニュアルを作成できます。",
+      "まずは頭の中にある業務手順を外に出し、誰でも見られる形にすることが急務です。AI搭載のマニュアル作成ツールなら、現場の説明や音声、チャットから短時間で新人向けマニュアルを作成できます。",
   },
 };
 
@@ -145,6 +145,8 @@ const answerList = document.querySelector("#answerList");
 const prevButton = document.querySelector("#prevButton");
 const nextButton = document.querySelector("#nextButton");
 const resultSection = document.querySelector("#result");
+const postDiagnosis = document.querySelector("#postDiagnosis");
+const gatedLinks = document.querySelectorAll(".gated-link");
 
 function renderQuestion() {
   const question = questions[state.current];
@@ -195,6 +197,14 @@ function renderList(elementId, items) {
   });
 }
 
+function unlockPostDiagnosis() {
+  postDiagnosis.hidden = false;
+  document.body.classList.add("has-result");
+  gatedLinks.forEach((link) => {
+    link.removeAttribute("aria-disabled");
+  });
+}
+
 function showResult() {
   const type = getResultType();
   const content = resultContent[type];
@@ -211,6 +221,7 @@ function showResult() {
   renderList("#futureList", content.future);
 
   resultSection.hidden = false;
+  unlockPostDiagnosis();
   resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -233,10 +244,19 @@ nextButton.addEventListener("click", () => {
   renderQuestion();
 });
 
+gatedLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (!document.body.classList.contains("has-result")) {
+      event.preventDefault();
+      document.querySelector("#diagnosis").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+
 document.querySelector("#leadForm").addEventListener("submit", (event) => {
   event.preventDefault();
   document.querySelector("#formMessage").textContent =
-    "送信ありがとうございます。実運用では、このフォームをCRMやメール配信ツールに接続します。";
+    "お問い合わせありがとうございます。診断結果をもとに、担当者よりご連絡します。";
   event.currentTarget.reset();
 });
 
