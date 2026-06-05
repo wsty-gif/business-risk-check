@@ -116,6 +116,7 @@ const state = {
 
 const hourlyWage = 3000;
 const newHireRate = 0.08;
+const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxtSxkGOID3Ae9zyMR4gAconM-P3sQt5G9bwxqJ7sKV300DUa7P_48zv-SoMEXL4_rZ/exec";
 
 const questionCount = document.querySelector("#questionCount");
 const progressPercent = document.querySelector("#progressPercent");
@@ -130,6 +131,8 @@ const diagnosisSection = document.querySelector("#diagnosis");
 const quizShell = document.querySelector("#quizShell");
 const startDiagnosisButton = document.querySelector("#startDiagnosisButton");
 const gatedLinks = document.querySelectorAll(".gated-link");
+
+let latestDiagnosisResult = null;
 
 function formatMoney(amount) {
   return `${Math.round(amount).toLocaleString()}万円`;
@@ -310,6 +313,29 @@ function showResult() {
   renderList("#issueList", topIssues);
   renderList("#futureList", content.future);
   renderLossBreakdown(breakdown, totalLossMan);
+  latestDiagnosisResult = {
+    companySize: company.sizeLabel,
+    employeeEstimate: company.employees,
+    totalLossMan,
+    resultType: type,
+    resultTitle: content.title,
+    resultLead: content.lead,
+    topIssues,
+    breakdown: breakdown.map((item) => ({
+      label: item.label,
+      amountMan: item.amountMan,
+    })),
+    answers: questions.map((question, index) => {
+      const value = state.answers[index];
+      const answer = question.type === "companySize"
+        ? question.answers.find((item) => item.sizeLabel === value)
+        : question.answers.find((item) => item.value === value);
+      return {
+        question: question.text,
+        answer: answer?.text ?? "",
+      };
+    }),
+  };
 
   diagnosisSection.hidden = true;
   resultSection.hidden = false;
@@ -348,3 +374,58 @@ document.querySelector("#leadForm").addEventListener("submit", (event) => {
 });
 
 renderQuestion();
+
+document.querySelector("#leadForm").addEventListener(
+  "submit",
+  (event) => {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    submitLeadForm(event.currentTarget);
+  },
+  true,
+);
+
+async function submitLeadForm(form) {
+  const formMessage = document.querySelector("#formMessage");
+  const submitButton = form.querySelector('button[type="submit"]');
+
+  if (!GOOGLE_APPS_SCRIPT_WEB_APP_URL) {
+    formMessage.textContent = "送信先の設定が未完了です。Google Apps ScriptのWebアプリURLを設定してください。";
+    return;
+  }
+
+  const formData = new FormData(form);
+  const payload = {
+    submittedAt: new Date().toISOString(),
+    name: formData.get("name")?.toString().trim() ?? "",
+    email: formData.get("email")?.toString().trim() ?? "",
+    message: formData.get("message")?.toString().trim() ?? "",
+    pageUrl: window.location.href,
+    diagnosis: latestDiagnosisResult,
+  };
+
+  if (!payload.email) {
+    formMessage.textContent = "メールアドレスを入力してください。";
+    return;
+  }
+
+  submitButton.disabled = true;
+  formMessage.textContent = "送信しています...";
+
+  const body = new FormData();
+  body.append("payload", JSON.stringify(payload));
+
+  try {
+    await fetch(GOOGLE_APPS_SCRIPT_WEB_APP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body,
+    });
+    formMessage.textContent = "お申し込みありがとうございます。確認メールを自動送信しました。";
+    form.reset();
+  } catch (error) {
+    formMessage.textContent = "送信に失敗しました。時間をおいて再度お試しください。";
+  } finally {
+    submitButton.disabled = false;
+  }
+}
