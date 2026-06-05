@@ -40,7 +40,7 @@
               その状態は、すでに損失や退職リスクにつながっているかもしれません。
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#diagnosis">診断をはじめる</a>
+              <button id="startDiagnosisButton" class="button primary" type="button">診断をはじめる</button>
             </div>
           </div>
           <aside class="risk-panel" aria-label="診断でわかること">
@@ -82,22 +82,8 @@
         </div>
       </section>
 
-      <section class="diagnosis-section" id="diagnosis">
-        <div class="section-heading split-heading">
-          <div>
-            <p class="eyebrow">Diagnostic Quiz</p>
-            <h2>8つの質問に答えるだけで、現場の危険度を判定します</h2>
-          </div>
-          <figure class="mini-illustration" aria-label="診断の流れ">
-            <div class="flow-step">質問</div>
-            <div class="flow-arrow"></div>
-            <div class="flow-step">判定</div>
-            <div class="flow-arrow"></div>
-            <div class="flow-step">相談</div>
-          </figure>
-        </div>
-
-        <div class="quiz-shell">
+      <section class="diagnosis-section" id="diagnosis" hidden>
+        <div class="quiz-shell" id="quizShell" hidden>
           <div class="progress-area">
             <div class="progress-label">
               <span id="questionCount">Q1 / 8</span>

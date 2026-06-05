@@ -146,7 +146,16 @@ const prevButton = document.querySelector("#prevButton");
 const nextButton = document.querySelector("#nextButton");
 const resultSection = document.querySelector("#result");
 const postDiagnosis = document.querySelector("#postDiagnosis");
+const diagnosisSection = document.querySelector("#diagnosis");
+const quizShell = document.querySelector("#quizShell");
+const startDiagnosisButton = document.querySelector("#startDiagnosisButton");
 const gatedLinks = document.querySelectorAll(".gated-link");
+
+function openDiagnosis() {
+  diagnosisSection.hidden = false;
+  quizShell.hidden = false;
+  diagnosisSection.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 function renderQuestion() {
   const question = questions[state.current];
@@ -248,10 +257,17 @@ gatedLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
     if (!document.body.classList.contains("has-result")) {
       event.preventDefault();
-      document.querySelector("#diagnosis").scrollIntoView({ behavior: "smooth", block: "start" });
+      openDiagnosis();
     }
   });
 });
+
+document.querySelector('a[href="#diagnosis"]').addEventListener("click", (event) => {
+  event.preventDefault();
+  openDiagnosis();
+});
+
+startDiagnosisButton.addEventListener("click", openDiagnosis);
 
 document.querySelector("#leadForm").addEventListener("submit", (event) => {
   event.preventDefault();

@@ -311,54 +311,6 @@ h3 {
   margin-bottom: 32px;
 }
 
-.split-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
-  gap: 24px;
-  align-items: end;
-}
-
-.mini-illustration {
-  display: grid;
-  grid-template-columns: 1fr 32px 1fr 32px 1fr;
-  align-items: center;
-  margin: 0;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 18px;
-  background: #fff;
-  box-shadow: var(--shadow);
-}
-
-.flow-step {
-  display: grid;
-  min-height: 58px;
-  place-items: center;
-  border-radius: 8px;
-  color: #fff;
-  background: var(--navy);
-  font-size: 14px;
-  font-weight: 800;
-}
-
-.flow-arrow {
-  height: 2px;
-  background: var(--teal);
-  position: relative;
-}
-
-.flow-arrow::after {
-  content: "";
-  position: absolute;
-  right: -1px;
-  top: 50%;
-  width: 9px;
-  height: 9px;
-  border-top: 2px solid var(--teal);
-  border-right: 2px solid var(--teal);
-  transform: translateY(-50%) rotate(45deg);
-}
-
 .quiz-shell,
 .question-card,
 .result-summary,
@@ -635,7 +587,6 @@ textarea {
   .hero-inner,
   .result-layout,
   .cta-section,
-  .split-heading,
   .solution-intro {
     grid-template-columns: 1fr;
   }
@@ -648,10 +599,6 @@ textarea {
   .trust-band,
   .solution-grid {
     grid-template-columns: 1fr;
-  }
-
-  .mini-illustration {
-    max-width: 420px;
   }
 
   .quiz-controls {
@@ -707,24 +654,6 @@ textarea {
 
   .trust-band div {
     padding: 20px 16px;
-  }
-
-  .mini-illustration {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .flow-arrow {
-    width: 2px;
-    height: 24px;
-    justify-self: center;
-  }
-
-  .flow-arrow::after {
-    right: 50%;
-    top: auto;
-    bottom: -1px;
-    transform: translateX(50%) rotate(135deg);
   }
 
   .hero-actions,
