@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>業務ブラックボックス化危険度診断</title>
+    <meta
+      name="description"
+      content="3分で属人化・教育コスト・引き継ぎ失敗リスクを可視化する診断型SaaSリード獲得LPです。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="診断トップへ">
+        <span class="brand-mark">診</span>
+        <span>業務リスク診断</span>
+      </a>
+      <nav class="header-nav" aria-label="ページ内メニュー">
+        <a href="#diagnosis">診断</a>
+        <a href="#solution">解決策</a>
+        <a href="#demo">無料デモ</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">3分で見える化</p>
+            <h1>あなたの職場の「業務ブラックボックス化」危険度診断</h1>
+            <p class="lead">
+              「この人がいないと分からない」「教える人によってやり方が違う」「新人がなかなか育たない」。
+              その状態は、すでに損失や退職リスクにつながっているかもしれません。
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#diagnosis">診断をはじめる</a>
+              <a class="button secondary" href="#demo">無料デモを見る</a>
+            </div>
+          </div>
+          <aside class="risk-panel" aria-label="診断でわかること">
+            <div class="risk-meter">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p class="panel-title">診断でわかる5つのリスク</p>
+            <ul>
+              <li>属人化リスク</li>
+              <li>教育コスト</li>
+              <li>引き継ぎ失敗リスク</li>
+              <li>業務停止リスク</li>
+              <li>マニュアル整備レベル</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="trust-band" aria-label="課題の兆候">
+        <div>
+          <strong>急な欠勤で止まる</strong>
+          <span>担当者依存が表面化</span>
+        </div>
+        <div>
+          <strong>新人教育が長い</strong>
+          <span>教育コストが見えにくい</span>
+        </div>
+        <div>
+          <strong>手順が人で違う</strong>
+          <span>品質ばらつきが増える</span>
+        </div>
+      </section>
+
+      <section class="diagnosis-section" id="diagnosis">
+        <div class="section-heading">
+          <p class="eyebrow">Diagnostic Quiz</p>
+          <h2>8つの質問に答えるだけで、職場の危険度を判定します</h2>
+        </div>
+
+        <div class="quiz-shell">
+          <div class="progress-area">
+            <div class="progress-label">
+              <span id="questionCount">Q1 / 8</span>
+              <span id="progressPercent">12%</span>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <div id="progressBar" class="progress-bar"></div>
+            </div>
+          </div>
+
+          <article class="question-card">
+            <p id="questionIntent" class="question-intent"></p>
+            <h3 id="questionText"></h3>
+            <div id="answerList" class="answer-list"></div>
+          </article>
+
+          <div class="quiz-controls">
+            <button id="prevButton" class="button ghost" type="button">戻る</button>
+            <button id="nextButton" class="button primary" type="button">次へ</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="result" class="result-section" hidden>
+        <div class="result-layout">
+          <div class="result-summary">
+            <p class="eyebrow">Diagnosis Result</p>
+            <h2 id="resultTitle"></h2>
+            <p id="resultLead" class="lead"></p>
+            <div class="score-box">
+              <span>危険度スコア</span>
+              <strong id="riskScore"></strong>
+            </div>
+          </div>
+          <div class="result-details">
+            <div>
+              <h3 id="issueTitle"></h3>
+              <ul id="issueList"></ul>
+            </div>
+            <div>
+              <h3 id="futureTitle"></h3>
+              <ul id="futureList"></ul>
+            </div>
+            <div class="recommendation">
+              <h3>おすすめ</h3>
+              <p id="recommendationText"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="solution-section" id="solution">
+        <div class="section-heading">
+          <p class="eyebrow">Solution</p>
+          <h2>属人化を防ぐには、忙しい現場にマニュアル作成を任せきらない仕組みが必要です</h2>
+        </div>
+        <div class="solution-grid">
+          <article>
+            <span>01</span>
+            <h3>口頭説明をマニュアル化</h3>
+            <p>現場で話している業務説明を、手順として読みやすい形に整理します。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>音声・チャットから作成</h3>
+            <p>メモを書く時間がない現場でも、入力しやすい形から資料化できます。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>新人向けに変換</h3>
+            <p>経験者の説明を、初めて担当する人にも分かる粒度へ整えます。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>引き継ぎ資料を再利用</h3>
+            <p>一度作った手順を研修資料・FAQ・引き継ぎ資料として活用できます。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-section" id="demo">
+        <div>
+          <p class="eyebrow">Free Demo</p>
+          <h2>無料相談・デモはこちら</h2>
+          <p>
+            あなたの実際の業務内容をもとに、その場でAIマニュアル化を体験できます。
+            まずは「今まで口頭で教えていた業務」がどれだけ簡単に整理できるかをご確認ください。
+          </p>
+        </div>
+        <form class="lead-form" id="leadForm">
+          <label>
+            お名前
+            <input type="text" name="name" placeholder="山田 太郎" required />
+          </label>
+          <label>
+            メールアドレス
+            <input type="email" name="email" placeholder="sample@example.com" required />
+          </label>
+          <label>
+            相談したい内容
+            <textarea name="message" placeholder="例：新人教育用の手順書をAIで作りたい"></textarea>
+          </label>
+          <button class="button primary full" type="submit">無料デモを申し込む</button>
+          <p id="formMessage" class="form-message" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 業務リスク診断LP</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
