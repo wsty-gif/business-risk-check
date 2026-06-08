@@ -92,11 +92,11 @@ svg {
 .hero {
   position: relative;
   overflow: hidden;
-  color: #fff;
+  color: var(--navy);
   background:
-    radial-gradient(circle at 18% 18%, rgba(242, 169, 59, 0.26), transparent 25%),
-    radial-gradient(circle at 88% 14%, rgba(223, 246, 238, 0.38), transparent 28%),
-    linear-gradient(135deg, #112942 0%, #0d5968 54%, #0f8b8d 100%);
+    radial-gradient(circle at 12% 12%, rgba(242, 169, 59, 0.22), transparent 26%),
+    radial-gradient(circle at 84% 18%, rgba(15, 139, 141, 0.16), transparent 30%),
+    linear-gradient(180deg, #fffaf0 0%, #f4fbfa 58%, #ffffff 100%);
 }
 
 .hero::before,
@@ -109,10 +109,10 @@ svg {
 .hero::before {
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-  background-size: 54px 54px;
-  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.64), transparent 72%);
+    linear-gradient(rgba(15, 139, 141, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 139, 141, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.42), transparent 76%);
 }
 
 .hero::after {
@@ -121,18 +121,18 @@ svg {
   width: 520px;
   height: 520px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.13);
-  filter: blur(4px);
+  background: rgba(242, 169, 59, 0.18);
+  filter: blur(8px);
 }
 
 .hero-inner {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
-  gap: clamp(28px, 5vw, 76px);
-  min-height: min(760px, calc(100svh - 68px));
-  max-width: 1180px;
+  grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
+  gap: clamp(28px, 4vw, 56px);
+  min-height: min(780px, calc(100svh - 68px));
+  max-width: 1240px;
   margin: 0 auto;
   padding: clamp(64px, 9vw, 112px) 22px 58px;
   align-items: center;
@@ -156,11 +156,14 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(156, 231, 214, 0.38);
+  border: 1px solid rgba(242, 169, 59, 0.34);
   border-radius: 999px;
   padding: 7px 13px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: #b95c00;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 10px 28px rgba(242, 169, 59, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .hero .eyebrow::before {
@@ -189,7 +192,7 @@ h1 {
 
 .hero h1 {
   text-wrap: balance;
-  text-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+  text-shadow: none;
 }
 
 h2 {
@@ -213,8 +216,9 @@ h3 {
 
 .hero .lead {
   max-width: 680px;
-  border-left: 4px solid rgba(156, 231, 214, 0.74);
+  border-left: 4px solid var(--amber);
   padding-left: 18px;
+  color: #43566b;
 }
 
 .hero-actions {
@@ -254,10 +258,14 @@ h3 {
 
 .hero .button.primary {
   min-height: 58px;
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(242, 169, 59, 0.24);
   border-radius: 999px;
   padding-inline: 30px;
   font-size: 17px;
+  background: linear-gradient(135deg, #ff9b1a, #f27f0c 52%, #dc5f08);
+  box-shadow:
+    0 18px 38px rgba(242, 127, 12, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
 }
 
 .hero .button.primary::after {
@@ -271,13 +279,14 @@ h3 {
   content: "8問で完了　|　年間損失額を自動計算　|　内訳まで表示";
   display: inline-flex;
   margin-top: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(15, 139, 141, 0.16);
   border-radius: 999px;
   padding: 9px 14px;
-  color: rgba(255, 255, 255, 0.88);
-  background: rgba(255, 255, 255, 0.1);
+  color: #315064;
+  background: rgba(255, 255, 255, 0.78);
   font-size: 13px;
   font-weight: 800;
+  box-shadow: 0 10px 28px rgba(22, 49, 74, 0.08);
   backdrop-filter: blur(12px);
 }
 
@@ -304,33 +313,32 @@ h3 {
 
 .hero-illustration {
   position: relative;
-  padding: 18px;
-  border-color: rgba(255, 255, 255, 0.34);
-  border-radius: 18px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  overflow: hidden;
+  padding: 8px;
+  border-color: rgba(15, 139, 141, 0.14);
+  border-radius: 8px;
+  background: #fff;
   box-shadow:
-    0 32px 90px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  transform: rotate(1deg);
+    0 26px 70px rgba(22, 49, 74, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
 }
 
 .hero-illustration::before {
-  content: "診断結果プレビュー";
+  content: "";
   position: absolute;
-  top: 18px;
-  left: 18px;
-  z-index: 1;
-  border-radius: 999px;
-  padding: 7px 12px;
-  color: var(--navy);
-  background: rgba(255, 255, 255, 0.9);
-  font-size: 12px;
-  font-weight: 800;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
 }
 
-.hero-illustration svg {
-  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.18));
+.hero-illustration img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
 }
 
 .svg-card {
