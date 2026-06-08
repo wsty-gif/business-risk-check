@@ -361,7 +361,7 @@ gatedLinks.forEach((link) => {
 
 document.querySelector('a[href="#diagnosis"]').addEventListener("click", (event) => {
   event.preventDefault();
-  openDiagnosis();
+  restartDiagnosis();
 });
 
 startDiagnosisButton.addEventListener("click", restartDiagnosis);
