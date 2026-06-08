@@ -366,13 +366,6 @@ document.querySelector('a[href="#diagnosis"]').addEventListener("click", (event)
 
 startDiagnosisButton.addEventListener("click", restartDiagnosis);
 
-document.querySelector("#leadForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-  document.querySelector("#formMessage").textContent =
-    "お申し込みありがとうございます。診断結果をもとに、担当者よりご連絡します。";
-  event.currentTarget.reset();
-});
-
 renderQuestion();
 
 document.querySelector("#leadForm").addEventListener(
@@ -388,8 +381,10 @@ document.querySelector("#leadForm").addEventListener(
 async function submitLeadForm(form) {
   const formMessage = document.querySelector("#formMessage");
   const submitButton = form.querySelector('button[type="submit"]');
+  formMessage.className = "form-message";
 
   if (!GOOGLE_APPS_SCRIPT_WEB_APP_URL) {
+    formMessage.classList.add("is-error");
     formMessage.textContent = "送信先の設定が未完了です。Google Apps ScriptのWebアプリURLを設定してください。";
     return;
   }
@@ -405,11 +400,13 @@ async function submitLeadForm(form) {
   };
 
   if (!payload.email) {
+    formMessage.classList.add("is-error");
     formMessage.textContent = "メールアドレスを入力してください。";
     return;
   }
 
   submitButton.disabled = true;
+  formMessage.classList.add("is-loading");
   formMessage.textContent = "送信しています...";
 
   const body = new FormData();
@@ -421,11 +418,34 @@ async function submitLeadForm(form) {
       mode: "no-cors",
       body,
     });
-    formMessage.textContent = "お申し込みありがとうございます。確認メールを自動送信しました。";
+    const resultTitle = payload.diagnosis?.resultTitle || "診断結果";
+    const lossAmount = payload.diagnosis?.totalLossMan ?? 0;
+    const consultation = payload.message || "未入力";
+
+    formMessage.className = "form-message is-success";
+    formMessage.innerHTML = `
+      <strong>お申し込みありがとうございます。確認メールを自動送信しました。</strong>
+      <span>送信先メールアドレス: ${escapeHtml(payload.email)}</span>
+      <span>お名前: ${escapeHtml(payload.name || "未入力")}</span>
+      <span>相談内容: ${escapeHtml(consultation)}</span>
+      <span>診断結果: ${escapeHtml(resultTitle)} / 年間損失額の目安 約${escapeHtml(String(lossAmount))}万円</span>
+      <span>担当者より、診断内容をもとにご連絡します。</span>
+    `;
     form.reset();
   } catch (error) {
+    formMessage.className = "form-message is-error";
     formMessage.textContent = "送信に失敗しました。時間をおいて再度お試しください。";
   } finally {
     submitButton.disabled = false;
   }
+}
+
+function escapeHtml(value) {
+  return value.replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#039;",
+  })[char]);
 }

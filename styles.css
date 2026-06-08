@@ -493,12 +493,14 @@ h3 {
 }
 
 .quiz-visual {
+  display: none;
   position: absolute;
-  top: 18px;
-  right: 18px;
-  width: min(28vw, 190px);
-  opacity: 0.34;
+  top: 30px;
+  right: 32px;
+  width: min(18vw, 126px);
+  opacity: 0.18;
   pointer-events: none;
+  transform: translateY(-18px);
 }
 
 .progress-label {
@@ -800,6 +802,43 @@ textarea {
   min-height: 24px;
   margin: 0;
   font-size: 14px;
+}
+
+.form-message.is-success,
+.form-message.is-error,
+.form-message.is-loading {
+  display: grid;
+  gap: 6px;
+  border-radius: 8px;
+  padding: 14px 16px;
+  line-height: 1.6;
+}
+
+.form-message.is-success {
+  border: 1px solid rgba(54, 168, 107, 0.35);
+  color: #145c3a;
+  background: #eaf8f0;
+}
+
+.form-message.is-error {
+  border: 1px solid rgba(216, 83, 79, 0.35);
+  color: #8f2624;
+  background: #fff0ef;
+}
+
+.form-message.is-loading {
+  border: 1px solid rgba(15, 139, 141, 0.28);
+  color: var(--navy);
+  background: #eefafa;
+}
+
+.form-message strong {
+  color: inherit;
+  font-size: 15px;
+}
+
+.form-message span {
+  color: inherit;
 }
 
 .site-footer {
