@@ -476,10 +476,11 @@ h3 {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   margin-bottom: 14px;
   border-radius: 8px;
-  background: #f3f6f8;
+  background: #fff;
 }
 
 .problem-grid span,
