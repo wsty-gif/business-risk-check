@@ -1,5 +1,5 @@
 const SHEET_NAME = "診断回答";
-const ADMIN_EMAIL = "";
+const ADMIN_EMAIL = "liseup9798@gmail.com";
 
 function doPost(e) {
   try {
@@ -13,6 +13,7 @@ function doPost(e) {
       new Date(),
       payload.name || "",
       payload.email || "",
+      payload.phone || "",
       payload.message || "",
       diagnosis.companySize || "",
       diagnosis.employeeEstimate || "",
@@ -47,6 +48,7 @@ function getOrCreateSheet_() {
       "送信日時",
       "お名前",
       "メールアドレス",
+      "電話番号",
       "相談内容",
       "従業員規模",
       "推定従業員数",
@@ -57,6 +59,15 @@ function getOrCreateSheet_() {
       "設問回答",
       "ページURL",
     ]);
+  } else {
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    const emailColumn = headers.indexOf("メールアドレス") + 1;
+    const hasPhoneColumn = headers.includes("電話番号");
+
+    if (!hasPhoneColumn && emailColumn > 0) {
+      sheet.insertColumnAfter(emailColumn);
+      sheet.getRange(1, emailColumn + 1).setValue("電話番号");
+    }
   }
 
   return sheet;
@@ -110,6 +121,7 @@ function sendAdminNotice_(payload) {
 
 お名前: ${payload.name || ""}
 メール: ${payload.email || ""}
+電話番号: ${payload.phone || ""}
 相談内容:
 ${payload.message || ""}
 

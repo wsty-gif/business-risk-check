@@ -394,6 +394,7 @@ async function submitLeadForm(form) {
     submittedAt: new Date().toISOString(),
     name: formData.get("name")?.toString().trim() ?? "",
     email: formData.get("email")?.toString().trim() ?? "",
+    phone: formData.get("phone")?.toString().trim() ?? "",
     message: formData.get("message")?.toString().trim() ?? "",
     pageUrl: window.location.href,
     diagnosis: latestDiagnosisResult,
@@ -427,6 +428,7 @@ async function submitLeadForm(form) {
       <strong>お申し込みありがとうございます。確認メールを自動送信しました。</strong>
       <span>送信先メールアドレス: ${escapeHtml(payload.email)}</span>
       <span>お名前: ${escapeHtml(payload.name || "未入力")}</span>
+      <span>電話番号: ${escapeHtml(payload.phone || "未入力")}</span>
       <span>相談内容: ${escapeHtml(consultation)}</span>
       <span>診断結果: ${escapeHtml(resultTitle)} / 年間損失額の目安 約${escapeHtml(String(lossAmount))}万円</span>
       <span>担当者より、診断内容をもとにご連絡します。</span>

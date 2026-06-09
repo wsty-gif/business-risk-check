@@ -12,7 +12,7 @@
 
 1. Apps Scriptの `コード.gs` を開きます。
 2. このリポジトリの `google-apps-script/Code.gs` の内容をすべて貼り付けます。
-3. 管理者にも通知したい場合は、先頭の `ADMIN_EMAIL` に通知先メールアドレスを入れます。
+3. 管理者通知は `ADMIN_EMAIL` に設定したメールアドレスへ送信されます。初期設定では `liseup9798@gmail.com` です。
 4. 保存します。
 
 ## 3. Webアプリとしてデプロイ
@@ -36,7 +36,7 @@ const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/xxxxx
 ## 5. 動作確認
 
 1. サイトで診断を最後まで回答します。
-2. 問い合わせフォームに名前、メールアドレス、相談内容を入力します。
+2. 問い合わせフォームに名前、メールアドレス、電話番号、相談内容を入力します。
 3. 「無料業務診断を申し込む」を押します。
 4. スプレッドシートに1行追加されることを確認します。
 5. 入力したメールアドレスに自動返信が届くことを確認します。
@@ -46,6 +46,7 @@ const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/xxxxx
 - 送信日時
 - お名前
 - メールアドレス
+- 電話番号
 - 相談内容
 - 従業員規模
 - 推定従業員数
