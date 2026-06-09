@@ -914,10 +914,12 @@ textarea {
   }
 
   .hero-copy::after {
+    content: "8問で完了\A年間損失額を自動計算\A内訳まで表示";
     display: flex;
     width: 100%;
     border-radius: 8px;
     white-space: normal;
+    line-height: 1.7;
   }
 
   .problem-section,
