@@ -965,12 +965,15 @@ textarea {
     padding: 48px 16px;
   }
 
-  .problem-grid,
+  .problem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
   .solution-grid {
     grid-template-columns: 1fr;
   }
 
-  .problem-grid article,
   .quiz-shell,
   .question-card,
   .result-summary,
@@ -978,6 +981,25 @@ textarea {
   .lead-form,
   .solution-grid article {
     padding: 18px;
+  }
+
+  .problem-grid article {
+    min-height: auto;
+    padding: 12px;
+  }
+
+  .problem-image {
+    margin-bottom: 10px;
+  }
+
+  .problem-grid span {
+    font-size: 12px;
+  }
+
+  .problem-grid p {
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.45;
   }
 
   .quiz-visual {
