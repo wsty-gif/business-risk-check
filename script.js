@@ -130,6 +130,7 @@ const postDiagnosis = document.querySelector("#postDiagnosis");
 const diagnosisSection = document.querySelector("#diagnosis");
 const quizShell = document.querySelector("#quizShell");
 const startDiagnosisButton = document.querySelector("#startDiagnosisButton");
+const problemStartDiagnosisButton = document.querySelector("#problemStartDiagnosisButton");
 const gatedLinks = document.querySelectorAll(".gated-link");
 
 let latestDiagnosisResult = null;
@@ -365,6 +366,7 @@ document.querySelector('a[href="#diagnosis"]').addEventListener("click", (event)
 });
 
 startDiagnosisButton.addEventListener("click", restartDiagnosis);
+problemStartDiagnosisButton.addEventListener("click", restartDiagnosis);
 
 renderQuestion();
 
