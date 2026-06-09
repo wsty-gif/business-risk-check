@@ -914,15 +914,15 @@ textarea {
   }
 
   .hero-copy::after {
-    content: "8問で完了 年間損失額を自動計算 内訳まで表示";
+    content: "8問で完了　|　年間損失額を自動計算　|　内訳まで表示";
     display: flex;
-    width: calc(100% - 4px);
+    width: calc(100% - 8px);
     max-width: 100%;
-    border-radius: 8px;
-    padding: 9px 12px;
+    border-radius: 999px;
+    padding: 9px 10px;
     white-space: nowrap;
     overflow: hidden;
-    font-size: clamp(11px, 2.8vw, 13px);
+    font-size: clamp(10px, 2.65vw, 13px);
   }
 
   .problem-section,
