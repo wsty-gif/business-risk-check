@@ -116,7 +116,7 @@ const state = {
 
 const hourlyWage = 3000;
 const newHireRate = 0.08;
-const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxtSxkGOID3Ae9zyMR4gAconM-P3sQt5G9bwxqJ7sKV300DUa7P_48zv-SoMEXL4_rZ/exec";
+const GOOGLE_APPS_SCRIPT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxlMDcAh7ia47TZvRvfrvcxJ0BPOMTj4AoX_nAoVZrTximgTQPVjac-VLrEEsD1w5In/exec";
 
 const questionCount = document.querySelector("#questionCount");
 const progressPercent = document.querySelector("#progressPercent");
